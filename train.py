@@ -160,8 +160,6 @@ model_ft.fc = nn.Sequential(
     nn.Linear(256, num_classes)    # Final prediction fc layer
 )
 model_ft.load_state_dict(torch.load('saved_model.pth'))
-#model_ft= nn.DataParallel(model_ft)
-model_ft = model_ft.to(device)
 criterion = nn.CrossEntropyLoss()
 
 optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.0001, weight_decay=0.0001)
@@ -174,6 +172,9 @@ for param in model_ft.parameters():
 for param in model_ft.fc.parameters():
     param.requires_grad = True
     
+model_ft= nn.DataParallel(model_ft)
+model_ft = model_ft.to(device)    
+
 batch_size = 128
 # Pytorch train and test sets
 #train = torch.utils.data.TensorDataset(featuresTrain,targetsTrain)
