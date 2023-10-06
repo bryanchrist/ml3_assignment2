@@ -163,6 +163,7 @@ model_ft.fc = nn.Sequential(
     nn.Linear(256, num_classes)    # Final prediction fc layer
 )
 model_ft.load_state_dict(torch.load('saved_model.pth'))
+model_ft= nn.DataParallel(model_ft)
 model_ft = model_ft.to(device)
 criterion = nn.CrossEntropyLoss()
 
