@@ -1,0 +1,6 @@
+pandas
+matplotlib
+numpy
+torchvision
+PIL
+sklearn

@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import torch.nn as nn
 from torch.utils.data import Dataset, random_split, DataLoader
-import matplotlib.pyplot as plt
 import torch.nn.functional as F
 from torchvision.utils import make_grid
 from torchvision.datasets import ImageFolder
@@ -144,7 +143,6 @@ import torch.backends.cudnn as cudnn
 import numpy as np
 import torchvision
 from torchvision import datasets, models, transforms
-import matplotlib.pyplot as plt
 import time
 import os
 from PIL import Image
@@ -162,7 +160,7 @@ model_ft.fc = nn.Sequential(
     nn.Linear(256, num_classes)    # Final prediction fc layer
 )
 model_ft.load_state_dict(torch.load('saved_model.pth'))
-model_ft= nn.DataParallel(model_ft)
+#model_ft= nn.DataParallel(model_ft)
 model_ft = model_ft.to(device)
 criterion = nn.CrossEntropyLoss()
 

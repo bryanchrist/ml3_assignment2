@@ -1,0 +1,6 @@
+ERROR: Could not find a version that satisfies the requirement matplotlib.pyplot (from versions: none)
+ERROR: No matching distribution found for matplotlib.pyplot
+Traceback (most recent call last):
+  File "/sfs/qumulo/qhome/brc4cb/ml3_assignment2/train.py", line 7, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
