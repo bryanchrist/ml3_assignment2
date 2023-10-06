@@ -1,0 +1,9 @@
+To execute the default application inside the container, run:
+singularity run --nv $CONTAINERDIR/pytorch-2.0.1.sif
+
+This container is based on NGC 23.08
+https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-08.html#rel-23-08
+  File "/sfs/qumulo/qhome/brc4cb/ml3_assignment2/train.py", line 22
+    %matplotlib inline
+    ^
+SyntaxError: invalid syntax

@@ -19,7 +19,6 @@ from sklearn.model_selection import train_test_split
 from torch import optim
 import time
 from torch.autograd import Variable
-%matplotlib inline
 
 SEED = 1
 
