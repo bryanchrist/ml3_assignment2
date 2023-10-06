@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A bryan_research
+#SBATCH -A sds-phd-2022
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:2
 #SBATCH --ntasks=1
