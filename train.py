@@ -189,7 +189,22 @@ crop_loader = DataLoader(crop_data, batch_size = batch_size, shuffle = False)
 train_losses = []
 valid_losses = []
 def train_model(model, optimizer, train_loader, valid_loader, loss_module, num_epochs=100):
-    min_valid_loss = np.inf
+    min_valid_loss = 0.0
+    model.eval()     
+    for data_inputs, data_labels in valid_loader:
+        data_inputs = data_inputs.to(device)
+        data_labels = np.array(data_labels)
+        data_labels = torch.from_numpy(data_labels)
+        data_labels = data_labels.to(device)
+
+        ## Step 2: Run the model on the input data
+        preds = model(data_inputs)
+        preds = preds.squeeze(dim=1) # Output is [Batch size, 1], but we want [Batch size]
+
+        ## Step 3: Calculate the loss
+        loss = loss_module(preds, data_labels)
+        min_valid_loss += loss.item()
+        
     # Training loop
     for epoch in tqdm(range(num_epochs)):
         train_loss = 0.0
@@ -204,15 +219,16 @@ def train_model(model, optimizer, train_loader, valid_loader, loss_module, num_e
             data_labels = data_labels.to(device)
 
             ## Step 2: Run the model on the input data
-            inputs = data_inputs.view(-1, 3, 224, 224)  
-            preds = model(inputs)
-            preds = preds.view(10, -1, 120)
-            preds = preds.max(dim=0)
-            #preds = model(data_inputs)
-            #preds = preds.squeeze(dim=1) # Output is [Batch size, 1], but we want [Batch size]
+#             inputs = data_inputs.view(-1, 3, 224, 224)  
+#             preds = model(inputs)
+#             preds = preds.view(10, -1, 120)
+#             preds = preds.max(dim=0)
+            preds = model(data_inputs)
+            preds = preds.squeeze(dim=1) # Output is [Batch size, 1], but we want [Batch size]
 
             ## Step 3: Calculate the loss
-            loss = loss_module(preds[0], data_labels)
+            #loss = loss_module(preds[0], data_labels)
+            loss = loss_module(preds, data_labels)
             ## Step 4: Perform backpropagation
             # Before calculating the gradients, we need to ensure that they are all zero.
             # The gradients would not be overwritten, but actually added to the existing ones.
@@ -250,8 +266,8 @@ def train_model(model, optimizer, train_loader, valid_loader, loss_module, num_e
             print(f'Validation Loss Decreased({min_valid_loss:.6f}--->{valid_loss:.6f}) \t Saving The Model')
             min_valid_loss = valid_loss
             # Saving State Dict
-            torch.save(model.state_dict(), 'saved_model_test.pth')
-train_model(model_ft, optimizer_ft, crop_loader, valid_loader, criterion, num_epochs = 150)
+            torch.save(model.module.state_dict(), 'saved_model_final.pth')
+train_model(model_ft, optimizer_ft, train_loader, valid_loader, criterion, num_epochs = 150)
 
 import torch.nn.functional as F
 
@@ -276,6 +292,19 @@ def eval_model(model, data_loader):
     acc = true_preds / num_preds
     print(f"Accuracy of the model: {100.0*acc:4.2f}%")
 
+model_ft = models.resnet50()
+num_classes=120
+num_ftrs = model_ft.fc.in_features
+#model_ft.fc = nn.Linear(num_ftrs, num_classes)
+model_ft.fc = nn.Sequential(
+    nn.Linear(num_ftrs, 256),  # Additional linear layer with 256 output features
+    nn.LeakyReLU(negative_slope=0.01, inplace=True),        
+    nn.Dropout(0.2),               # Dropout layer with 20% probability
+    nn.Linear(256, num_classes)    # Final prediction fc layer
+)
+model_ft = nn.DataParallel(model_ft)
+model_ft.load_state_dict(torch.load('saved_model_final.pth'))
+model_ft = model_ft.to(device)
 # Assuming you have already defined 'model' and 'train_loader'
 eval_model(model_ft, train_loader)
 eval_model(model_ft, valid_loader)
