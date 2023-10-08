@@ -159,10 +159,10 @@ model_ft.fc = nn.Sequential(
     nn.Dropout(0.2),               # Dropout layer with 20% probability
     nn.Linear(256, num_classes)    # Final prediction fc layer
 )
-model_ft.load_state_dict(torch.load('saved_model.pth'))
+#model_ft.load_state_dict(torch.load('saved_model.pth'))
 criterion = nn.CrossEntropyLoss()
 
-optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.0001, weight_decay=0.0001)
+optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.000001, weight_decay=0.0001)
 
 # Decay LR by a factor of 0.1 every 7 epochs
 exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
@@ -172,14 +172,13 @@ for param in model_ft.parameters():
 for param in model_ft.fc.parameters():
     param.requires_grad = True
     
-model_ft= nn.DataParallel(model_ft)
+#model_ft = nn.DataParallel(model_ft)
+model_ft.load_state_dict(torch.load('saved_model_final.pth'))
+model_ft = nn.DataParallel(model_ft)
 model_ft = model_ft.to(device)    
 
 batch_size = 128
 # Pytorch train and test sets
-#train = torch.utils.data.TensorDataset(featuresTrain,targetsTrain)
-min_valid_loss = np.inf
-
 # data loader
 train_loader = DataLoader(train_data, batch_size = batch_size, shuffle = False)
 valid_loader= DataLoader(valid_data, batch_size = batch_size, shuffle = False)
@@ -302,9 +301,14 @@ model_ft.fc = nn.Sequential(
     nn.Dropout(0.2),               # Dropout layer with 20% probability
     nn.Linear(256, num_classes)    # Final prediction fc layer
 )
-model_ft = nn.DataParallel(model_ft)
 model_ft.load_state_dict(torch.load('saved_model_final.pth'))
+model_ft = nn.DataParallel(model_ft)
 model_ft = model_ft.to(device)
+
+criterion = nn.CrossEntropyLoss()
+
+optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.000001, weight_decay=0.0001)
+
 # Assuming you have already defined 'model' and 'train_loader'
 eval_model(model_ft, train_loader)
 eval_model(model_ft, valid_loader)

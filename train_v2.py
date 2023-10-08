@@ -148,33 +148,6 @@ import os
 from PIL import Image
 from tempfile import TemporaryDirectory
 
-#Load trained model:
-model_ft = models.resnet50()
-num_classes=120
-num_ftrs = model_ft.fc.in_features
-#model_ft.fc = nn.Linear(num_ftrs, num_classes)
-model_ft.fc = nn.Sequential(
-    nn.Linear(num_ftrs, 256),  # Additional linear layer with 256 output features
-    nn.LeakyReLU(negative_slope=0.01, inplace=True),        
-    nn.Dropout(0.2),               # Dropout layer with 20% probability
-    nn.Linear(256, num_classes)    # Final prediction fc layer
-)
-model_ft.load_state_dict(torch.load('saved_model.pth'))
-criterion = nn.CrossEntropyLoss()
-
-optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.0001, weight_decay=0.0001)
-
-# Decay LR by a factor of 0.1 every 7 epochs
-exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
-for param in model_ft.parameters():
-    param.requires_grad = False
-    
-for param in model_ft.fc.parameters():
-    param.requires_grad = True
-    
-model_ft= nn.DataParallel(model_ft)
-model_ft = model_ft.to(device)    
-
 batch_size = 128
 # Pytorch train and test sets
 #train = torch.utils.data.TensorDataset(featuresTrain,targetsTrain)
@@ -187,8 +160,9 @@ test_loader = DataLoader(test_data, batch_size = batch_size, shuffle = False)
 crop_loader = DataLoader(crop_data, batch_size = batch_size, shuffle = False)
 
 res = models.resnet50(weights='IMAGENET1K_V2')
-res = res.to(device)
 in_features = res.fc.out_features
+res = nn.DataParallel(res)
+res = res.to(device)
 
 class SimpleClassifier(nn.Module):
 
@@ -223,11 +197,13 @@ class SimpleClassifier(nn.Module):
            # x = self.softmax(x)
         return x
 model = SimpleClassifier(num_inputs=2352, num_hidden=200, num_hidden2= 500, num_outputs=120)
-model = model.to(device)
 criterion = nn.CrossEntropyLoss()
 
-optimizer_ft = optim.Adam(model.parameters(), lr=0.0001, weight_decay=0.0001)
+optimizer_ft = optim.Adam(model.parameters(), lr=0.00001, weight_decay=0.0001)
 
+model = nn.DataParallel(model)
+model.load_state_dict(torch.load('saved_model_test.pth'))
+model = model.to(device)
 train_losses = []
 valid_losses = []
 def train_model(res, model, optimizer, train_loader, valid_loader, loss_module, num_epochs=100):

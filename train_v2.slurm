@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -A ds5559
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:3
 #SBATCH --ntasks=1
 
 #SBATCH -t 3-00:00:00
