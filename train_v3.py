@@ -162,10 +162,10 @@ model_ft.fc = nn.Sequential(
 #model_ft.load_state_dict(torch.load('saved_model.pth'))
 criterion = nn.CrossEntropyLoss()
 
-optimizer_ft = optim.Adam(model_ft.parameters(), lr=0.0001, weight_decay=0.0001)
+optimizer_ft = optim.Adam(model_ft.parameters(), lr=0.00001, weight_decay=0.0001)
     
 #model_ft = nn.DataParallel(model_ft)
-model_ft.load_state_dict(torch.load('saved_model_final.pth'))
+model_ft.load_state_dict(torch.load('saved_model_final_v2.pth'))
 model_ft = nn.DataParallel(model_ft)
 model_ft = model_ft.to(device)    
 
