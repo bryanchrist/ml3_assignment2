@@ -1,0 +1,11 @@
+To execute the default application inside the container, run:
+singularity run --nv $CONTAINERDIR/pytorch-2.0.1.sif
+
+This container is based on NGC 23.08
+https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-08.html#rel-23-08
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)
+ERROR: No matching distribution found for PIL
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+  0%|          | 0/200 [00:00<?, ?it/s]  0%|          | 1/200 [01:33<5:10:04, 93.49s/it]  1%|          | 2/200 [03:06<5:07:46, 93.26s/it]  2%|▏         | 3/200 [04:39<5:05:57, 93.19s/it]  2%|▏         | 4/200 [06:12<5:03:56, 93.04s/it]  2%|▎         | 5/200 [07:45<5:02:04, 92.95s/it]  3%|▎         | 6/200 [09:17<5:00:10, 92.84s/it]  4%|▎         | 7/200 [10:50<4:58:13, 92.71s/it]  4%|▍         | 8/200 [12:22<4:56:05, 92.53s/it]  4%|▍         | 9/200 [13:54<4:54:15, 92.43s/it]  5%|▌         | 10/200 [15:27<4:52:49, 92.47s/it]  6%|▌         | 11/200 [16:59<4:50:48, 92.32s/it]  6%|▌         | 12/200 [18:31<4:48:57, 92.22s/it]  6%|▋         | 13/200 [20:03<4:47:18, 92.19s/it]  7%|▋         | 14/200 [21:35<4:45:48, 92.19s/it]  8%|▊         | 15/200 [23:08<4:44:36, 92.30s/it]  8%|▊         | 16/200 [24:40<4:43:20, 92.39s/it]  8%|▊         | 17/200 [26:13<4:42:17, 92.55s/it]  9%|▉         | 18/200 [27:46<4:40:53, 92.60s/it] 10%|▉         | 19/200 [29:19<4:39:29, 92.65s/it]slurmstepd: error: *** JOB 53958735 ON udc-an28-13 CANCELLED AT 2023-10-10T07:53:55 ***

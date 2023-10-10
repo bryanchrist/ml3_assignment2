@@ -1,0 +1,11 @@
+To execute the default application inside the container, run:
+singularity run --nv $CONTAINERDIR/pytorch-2.0.1.sif
+
+This container is based on NGC 23.08
+https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-08.html#rel-23-08
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)
+ERROR: No matching distribution found for PIL
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+  0%|          | 0/300 [00:00<?, ?it/s]  0%|          | 1/300 [01:46<8:52:12, 106.80s/it]slurmstepd: error: *** JOB 53983582 ON udc-aw37-37 CANCELLED AT 2023-10-10T15:59:49 ***

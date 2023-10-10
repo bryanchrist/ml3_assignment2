@@ -156,16 +156,17 @@ num_ftrs = model_ft.fc.in_features
 model_ft.fc = nn.Sequential(
     nn.Linear(num_ftrs, 256),  # Additional linear layer with 256 output features
     nn.LeakyReLU(negative_slope=0.01, inplace=True),        
-    nn.Dropout(0.2),               # Dropout layer with 20% probability
+    nn.Dropout(0.5),               # Dropout layer with 50% probability
     nn.Linear(256, num_classes)    # Final prediction fc layer
 )
 #model_ft.load_state_dict(torch.load('saved_model.pth'))
 criterion = nn.CrossEntropyLoss()
 
-optimizer_ft = optim.Adam(model_ft.parameters(), lr=0.00001, weight_decay=0.0001)
-    
+optimizer_ft = optim.Adam(model_ft.parameters(), lr=0.0001, weight_decay=0.0005)
+exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
 #model_ft = nn.DataParallel(model_ft)
-model_ft.load_state_dict(torch.load('saved_model_final_v2.pth'))
+#model_ft.load_state_dict(torch.load('saved_model_final.pth'))
+model_ft.load_state_dict(torch.load('saved_model_final_v3.pth'))
 model_ft = nn.DataParallel(model_ft)
 model_ft = model_ft.to(device)    
 
@@ -179,7 +180,8 @@ crop_loader = DataLoader(crop_data, batch_size = batch_size, shuffle = False)
 
 train_losses = []
 valid_losses = []
-def train_model(model, optimizer, train_loader, valid_loader, loss_module, num_epochs=100):
+
+def train_model(model, optimizer, scheduler, train_loader, valid_loader, loss_module, num_epochs=100):
     min_valid_loss = 0.0
     model.eval()     
     for data_inputs, data_labels in valid_loader:
@@ -202,7 +204,6 @@ def train_model(model, optimizer, train_loader, valid_loader, loss_module, num_e
         # Set model to train mode
         model.train()
         for data_inputs, data_labels in train_loader:
-
             ## Step 1: Move input data to device (only strictly necessary if we use GPU)
             data_inputs = data_inputs.to(device)
             data_labels = np.array(data_labels)
@@ -232,6 +233,7 @@ def train_model(model, optimizer, train_loader, valid_loader, loss_module, num_e
             
             ## Step 6: Add to loss
             train_loss += loss.item()
+        scheduler.step()
         
         #Validation Loop
         valid_loss = 0.0
@@ -257,8 +259,8 @@ def train_model(model, optimizer, train_loader, valid_loader, loss_module, num_e
             print(f'Validation Loss Decreased({min_valid_loss:.6f}--->{valid_loss:.6f}) \t Saving The Model')
             min_valid_loss = valid_loss
             # Saving State Dict
-            torch.save(model.module.state_dict(), 'saved_model_final_v2.pth')
-train_model(model_ft, optimizer_ft, train_loader, valid_loader, criterion, num_epochs = 100)
+            torch.save(model.module.state_dict(), 'saved_model_final_v3.pth')
+train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 300)
 
 import torch.nn.functional as F
 
@@ -293,7 +295,7 @@ model_ft.fc = nn.Sequential(
     nn.Dropout(0.2),               # Dropout layer with 20% probability
     nn.Linear(256, num_classes)    # Final prediction fc layer
 )
-model_ft.load_state_dict(torch.load('saved_model_final_v2.pth'))
+model_ft.load_state_dict(torch.load('saved_model_final_v3.pth'))
 model_ft = nn.DataParallel(model_ft)
 model_ft = model_ft.to(device)
 
@@ -386,4 +388,4 @@ def generate_submission(predictions, sample_submission_path, output_path):
         sample_submission.loc[sample_submission['id'] == prediction['image_id'], sample_submission.columns[1:]] = preds
     # Save the modified sample submission as the final submission
     sample_submission.to_csv(output_path, index=False)
-generate_submission(predictions, data_dir + '/sample_submission_v2.csv', 'my_submission.csv')
+generate_submission(predictions, data_dir + '/sample_submission.csv', 'my_submission_v2.csv')
