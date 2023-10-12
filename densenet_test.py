@@ -288,7 +288,7 @@ exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
 model_ft.load_state_dict(torch.load('resnext.pth'))
 model_ft = nn.DataParallel(model_ft)
 #model_ft = model_ft.to(device)   
-train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 100)
+#train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 100)
 
 import torch.nn.functional as F
 
@@ -346,9 +346,12 @@ class Dataset_Interpreter_test(Dataset):
         self.transforms = transforms
         self.resize = Resize((224,224))
         self.normalize = Normalize(means, stds)
-        self.trans = transforms.Compose([   
-            transforms.ToTensor()
-        ])
+        self.trans = transforms.Compose([
+    transforms.Resize(256),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
         
     def __len__(self):
         return (len(self.file_names))
@@ -357,9 +360,9 @@ class Dataset_Interpreter_test(Dataset):
         img_name = f'{self.file_names.iloc[idx]}'
         full_address = os.path.join(self.data_path, img_name)
         image = Image.open(full_address)
-        image = self.resize(image)
+        #image = self.resize(image)
         image = self.trans(image)
-        image = self.normalize(image)
+        #image = self.normalize(image)
 #         if self.transforms is not None:
 #             image = self.transforms(image)
         
