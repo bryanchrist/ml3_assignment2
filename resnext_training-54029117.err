@@ -1,0 +1,19 @@
+To execute the default application inside the container, run:
+singularity run --nv $CONTAINERDIR/pytorch-2.0.1.sif
+
+This container is based on NGC 23.08
+https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-08.html#rel-23-08
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)
+ERROR: No matching distribution found for PIL
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+Using cache found in /home/brc4cb/.cache/torch/hub/pytorch_vision_v0.10.0
+Traceback (most recent call last):
+  File "/sfs/qumulo/qhome/brc4cb/ml3_assignment2/densenet_test.py", line 289, in <module>
+    model_ft = nn.parallel.DistributedDataParallel(model_ft)
+  File "/home/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 734, in __init__
+    self.process_group = _get_default_group()
+  File "/home/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 940, in _get_default_group
+    raise RuntimeError(
+RuntimeError: Default process group has not been initialized, please make sure to call init_process_group.

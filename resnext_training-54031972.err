@@ -1,0 +1,17 @@
+To execute the default application inside the container, run:
+singularity run --nv $CONTAINERDIR/pytorch-2.0.1.sif
+
+This container is based on NGC 23.08
+https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-08.html#rel-23-08
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)
+ERROR: No matching distribution found for PIL
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+Using cache found in /home/brc4cb/.cache/torch/hub/pytorch_vision_v0.10.0
+/home/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNeXt101_32X8D_Weights.IMAGENET1K_V1`. You can also use `weights=ResNeXt101_32X8D_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Using cache found in /home/brc4cb/.cache/torch/hub/pytorch_vision_v0.10.0
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [02:21<3:54:10, 141.92s/it]  2%|▏         | 2/100 [04:32<3:40:44, 135.15s/it]  3%|▎         | 3/100 [06:41<3:34:20, 132.58s/it]  4%|▍         | 4/100 [08:51<3:30:03, 131.29s/it]  5%|▌         | 5/100 [11:00<3:26:37, 130.50s/it]  6%|▌         | 6/100 [13:09<3:23:49, 130.10s/it]  7%|▋         | 7/100 [15:19<3:21:22, 129.92s/it]

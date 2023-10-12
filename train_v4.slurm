@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH -A sds-phd-2022
-##SBATCH -A ds5559
+##SBATCH -A sds-phd-2022
+#SBATCH -A ds5559
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:3
 #SBATCH --ntasks=1
 
-#SBATCH -t 3-00:00:00
+#SBATCH -t 0-04:00:00
 #SBATCH -J ml3_assignment2_train
 #SBATCH -o training_v4-%A.out
 #SBATCH -e training_v4-%A.err

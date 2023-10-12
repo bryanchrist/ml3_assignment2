@@ -1,0 +1,197 @@
+Requirement already satisfied: pandas in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from -r requirements.txt (line 1)) (2.0.3)
+Collecting pandas (from -r requirements.txt (line 1))
+  Using cached pandas-2.1.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
+Collecting matplotlib (from -r requirements.txt (line 2))
+  Using cached matplotlib-3.8.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.6 MB)
+Requirement already satisfied: numpy in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from -r requirements.txt (line 3)) (1.25.2)
+Collecting numpy (from -r requirements.txt (line 3))
+  Using cached numpy-1.26.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+Requirement already satisfied: torchvision in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from -r requirements.txt (line 4)) (0.16.0)
+Requirement already satisfied: torchvision in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (0.16.0)
+Requirement already satisfied: numpy in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torchvision) (1.25.2)
+Requirement already satisfied: requests in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torchvision) (2.31.0)
+Requirement already satisfied: torch==2.1.0 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torchvision) (2.1.0)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torchvision) (10.0.1)
+Requirement already satisfied: filelock in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (3.9.0)
+Requirement already satisfied: typing-extensions in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (4.4.0)
+Requirement already satisfied: sympy in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (1.11.1)
+Requirement already satisfied: networkx in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (3.0rc1)
+Requirement already satisfied: jinja2 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (3.1.2)
+Requirement already satisfied: fsspec in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (2023.4.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.105)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.105)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.105)
+Requirement already satisfied: nvidia-cudnn-cu12==8.9.2.26 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (8.9.2.26)
+Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.3.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (11.0.2.54)
+Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (10.3.2.106)
+Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (11.4.5.107)
+Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.0.106)
+Requirement already satisfied: nvidia-nccl-cu12==2.18.1 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (2.18.1)
+Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.105)
+Requirement already satisfied: triton==2.1.0 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (2.1.0)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch==2.1.0->torchvision) (12.2.140)
+Requirement already satisfied: charset-normalizer<4,>=2 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from requests->torchvision) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from requests->torchvision) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from requests->torchvision) (2.0.3)
+Requirement already satisfied: certifi>=2017.4.17 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from requests->torchvision) (2023.5.7)
+Requirement already satisfied: MarkupSafe>=2.0 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from jinja2->torch==2.1.0->torchvision) (2.1.2)
+Requirement already satisfied: mpmath>=0.19 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from sympy->torch==2.1.0->torchvision) (1.2.1)
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+# All requested packages already installed.
+
+Epoch 1 		 Training Loss: 0.7994099976494908 		 Validation Loss: 0.6518818577751517
+Validation Loss Decreased(26.996533--->20.860219) 	 Saving The Model
+Epoch 2 		 Training Loss: 0.3004121516132727 		 Validation Loss: 0.7011967040598392
+Epoch 3 		 Training Loss: 0.2015203949122224 		 Validation Loss: 0.7742296252399683
+Epoch 4 		 Training Loss: 0.2805331201525405 		 Validation Loss: 0.965230280533433
+Epoch 5 		 Training Loss: 0.29531312693143263 		 Validation Loss: 1.0731593687087297
+Epoch 6 		 Training Loss: 0.3044073695782572 		 Validation Loss: 1.0738702863454819
+Epoch 7 		 Training Loss: 0.24945319653488696 		 Validation Loss: 1.106862161308527
+Epoch 8 		 Training Loss: 0.25618560740258545 		 Validation Loss: 1.1511526871472597
+Epoch 9 		 Training Loss: 0.2865410623489879 		 Validation Loss: 1.3084825426340103
+Epoch 10 		 Training Loss: 0.27971407177392393 		 Validation Loss: 1.2182078529149294
+Epoch 11 		 Training Loss: 0.10722651486867107 		 Validation Loss: 0.8437364008277655
+Epoch 12 		 Training Loss: 0.04516535455331905 		 Validation Loss: 0.8171363063156605
+Epoch 13 		 Training Loss: 0.03421034185157623 		 Validation Loss: 0.8032043594866991
+Epoch 14 		 Training Loss: 0.02415453429784975 		 Validation Loss: 0.7993307169526815
+Epoch 15 		 Training Loss: 0.022912514679774176 		 Validation Loss: 0.8008925784379244
+Epoch 16 		 Training Loss: 0.021686193387722597 		 Validation Loss: 0.7932777442038059
+Epoch 17 		 Training Loss: 0.01883232932232204 		 Validation Loss: 0.7891718856990337
+Epoch 18 		 Training Loss: 0.01847819157410413 		 Validation Loss: 0.787810331210494
+Epoch 19 		 Training Loss: 0.017053557847248157 		 Validation Loss: 0.7872304134070873
+Epoch 20 		 Training Loss: 0.01876001424534479 		 Validation Loss: 0.780241709202528
+Epoch 21 		 Training Loss: 0.014395330126717454 		 Validation Loss: 0.7774073090404272
+Epoch 22 		 Training Loss: 0.017280389998632018 		 Validation Loss: 0.7789744399487972
+Epoch 23 		 Training Loss: 0.013748633078648709 		 Validation Loss: 0.7780798282474279
+Epoch 24 		 Training Loss: 0.015224966060486622 		 Validation Loss: 0.7779511231929064
+Epoch 25 		 Training Loss: 0.015029906990093878 		 Validation Loss: 0.7757797073572874
+Epoch 26 		 Training Loss: 0.01426713995897444 		 Validation Loss: 0.7782508991658688
+Epoch 27 		 Training Loss: 0.012974655619473197 		 Validation Loss: 0.7767175137996674
+Epoch 28 		 Training Loss: 0.014225396222173003 		 Validation Loss: 0.7786722015589476
+Epoch 29 		 Training Loss: 0.013872369563614484 		 Validation Loss: 0.777183948084712
+Epoch 30 		 Training Loss: 0.01579962509276811 		 Validation Loss: 0.7774254735559225
+Epoch 31 		 Training Loss: 0.01529628953358042 		 Validation Loss: 0.7767017520964146
+Epoch 32 		 Training Loss: 0.01410569862491684 		 Validation Loss: 0.7768830303102732
+Epoch 33 		 Training Loss: 0.013372607754718047 		 Validation Loss: 0.7772767059504986
+Epoch 34 		 Training Loss: 0.01333517961029429 		 Validation Loss: 0.7776828147470951
+Epoch 35 		 Training Loss: 0.01387034273284371 		 Validation Loss: 0.7788600344210863
+Epoch 36 		 Training Loss: 0.014731856823345879 		 Validation Loss: 0.7771438229829073
+Epoch 37 		 Training Loss: 0.014021946233697236 		 Validation Loss: 0.7774559929966927
+Epoch 38 		 Training Loss: 0.01350777487459709 		 Validation Loss: 0.7770812697708607
+Epoch 39 		 Training Loss: 0.013773497073998442 		 Validation Loss: 0.7758899722248316
+Epoch 40 		 Training Loss: 0.013048328961303923 		 Validation Loss: 0.7759002186357975
+Epoch 41 		 Training Loss: 0.014826736049144529 		 Validation Loss: 0.7782531920820475
+Epoch 42 		 Training Loss: 0.015124096164072398 		 Validation Loss: 0.7763733491301537
+Epoch 43 		 Training Loss: 0.013443597283185227 		 Validation Loss: 0.7769744023680687
+Epoch 44 		 Training Loss: 0.013745382038905518 		 Validation Loss: 0.7762290462851524
+Epoch 45 		 Training Loss: 0.014010748964210507 		 Validation Loss: 0.7778240479528904
+Epoch 46 		 Training Loss: 0.014663350433693267 		 Validation Loss: 0.7779206670820713
+Epoch 47 		 Training Loss: 0.012835404133511474 		 Validation Loss: 0.776841351762414
+Epoch 48 		 Training Loss: 0.013009225629502907 		 Validation Loss: 0.7761997077614069
+Epoch 49 		 Training Loss: 0.012668975388805848 		 Validation Loss: 0.7771380078047514
+Epoch 50 		 Training Loss: 0.014094045611273032 		 Validation Loss: 0.7765089720487595
+Epoch 51 		 Training Loss: 0.012482635873311665 		 Validation Loss: 0.7762517910450697
+Epoch 52 		 Training Loss: 0.014695544094138313 		 Validation Loss: 0.7765476461499929
+Epoch 53 		 Training Loss: 0.012992101088457275 		 Validation Loss: 0.7777728959918022
+Epoch 54 		 Training Loss: 0.012828261915274197 		 Validation Loss: 0.7755759060382843
+Epoch 55 		 Training Loss: 0.013960001950181322 		 Validation Loss: 0.778332756832242
+Epoch 56 		 Training Loss: 0.012986070494662272 		 Validation Loss: 0.7764431368559599
+Epoch 57 		 Training Loss: 0.013531427779525984 		 Validation Loss: 0.7774210944771767
+Epoch 58 		 Training Loss: 0.01356742935240618 		 Validation Loss: 0.7773391492664814
+Epoch 59 		 Training Loss: 0.013196858504670672 		 Validation Loss: 0.7768819630146027
+Epoch 60 		 Training Loss: 0.014381503569893539 		 Validation Loss: 0.7782669495791197
+Epoch 61 		 Training Loss: 0.014025415948708542 		 Validation Loss: 0.7768860384821892
+Epoch 62 		 Training Loss: 0.014060932804568438 		 Validation Loss: 0.776773052290082
+Epoch 63 		 Training Loss: 0.014210495835868642 		 Validation Loss: 0.7774708811193705
+Epoch 64 		 Training Loss: 0.014233342753868783 		 Validation Loss: 0.7772382982075214
+Epoch 65 		 Training Loss: 0.012587236193212448 		 Validation Loss: 0.7773866560310125
+Epoch 66 		 Training Loss: 0.013404645167611307 		 Validation Loss: 0.7770883273333311
+Epoch 67 		 Training Loss: 0.015525432067079237 		 Validation Loss: 0.7769872322678566
+Epoch 68 		 Training Loss: 0.013084731333947275 		 Validation Loss: 0.776782238855958
+Epoch 69 		 Training Loss: 0.01399352495354833 		 Validation Loss: 0.7763130404055119
+Epoch 70 		 Training Loss: 0.017014190980262356 		 Validation Loss: 0.7758877705782652
+Epoch 71 		 Training Loss: 0.013912462916778168 		 Validation Loss: 0.7773927617818117
+Epoch 72 		 Training Loss: 0.014144435255730059 		 Validation Loss: 0.7779644802212715
+Epoch 73 		 Training Loss: 0.013287268604472047 		 Validation Loss: 0.7760455179959536
+Epoch 74 		 Training Loss: 0.013886005894164555 		 Validation Loss: 0.7781128566712141
+Epoch 75 		 Training Loss: 0.01323906798279495 		 Validation Loss: 0.7762431837618351
+Epoch 76 		 Training Loss: 0.01367082209981163 		 Validation Loss: 0.7772599421441555
+Epoch 77 		 Training Loss: 0.01423413149677799 		 Validation Loss: 0.777703270316124
+Epoch 78 		 Training Loss: 0.012935480914165964 		 Validation Loss: 0.7761086765676737
+Epoch 79 		 Training Loss: 0.014713441960338969 		 Validation Loss: 0.7764674182981253
+Epoch 80 		 Training Loss: 0.012290485919947969 		 Validation Loss: 0.77674750238657
+Epoch 81 		 Training Loss: 0.013658649899298325 		 Validation Loss: 0.7757858913391829
+Epoch 82 		 Training Loss: 0.011946887916565174 		 Validation Loss: 0.7766095772385597
+Epoch 83 		 Training Loss: 0.013836981666827342 		 Validation Loss: 0.7755560725927353
+Epoch 84 		 Training Loss: 0.014050364672584692 		 Validation Loss: 0.7766228448599577
+Epoch 85 		 Training Loss: 0.013949351003248012 		 Validation Loss: 0.7763498425483704
+Epoch 86 		 Training Loss: 0.014830356914899312 		 Validation Loss: 0.7770553957670927
+Epoch 87 		 Training Loss: 0.012749257071845932 		 Validation Loss: 0.7771244738250971
+Epoch 88 		 Training Loss: 0.01394903454274754 		 Validation Loss: 0.7767091616988182
+Epoch 89 		 Training Loss: 0.013937810512288706 		 Validation Loss: 0.7769666090607643
+Epoch 90 		 Training Loss: 0.014075345447054133 		 Validation Loss: 0.7778572700917721
+Epoch 91 		 Training Loss: 0.014848988445010036 		 Validation Loss: 0.7768939472734928
+Epoch 92 		 Training Loss: 0.013447328165057115 		 Validation Loss: 0.7754441052675247
+Epoch 93 		 Training Loss: 0.013300141821673606 		 Validation Loss: 0.775331936776638
+Epoch 94 		 Training Loss: 0.013716226858377922 		 Validation Loss: 0.7764891814440489
+Epoch 95 		 Training Loss: 0.013343491620616987 		 Validation Loss: 0.7774957101792097
+Epoch 96 		 Training Loss: 0.014095684779022122 		 Validation Loss: 0.7788115907460451
+Epoch 97 		 Training Loss: 0.013366991886869073 		 Validation Loss: 0.7764687836170197
+Epoch 98 		 Training Loss: 0.013049450102698756 		 Validation Loss: 0.777839008718729
+Epoch 99 		 Training Loss: 0.012448500227037584 		 Validation Loss: 0.7775588762015104
+Epoch 100 		 Training Loss: 0.013304952062753728 		 Validation Loss: 0.778803950175643
+Epoch 101 		 Training Loss: 0.014481798352790065 		 Validation Loss: 0.7794447652995586
+Epoch 102 		 Training Loss: 0.015322136063332437 		 Validation Loss: 0.778852017596364
+Epoch 103 		 Training Loss: 0.014268874470872106 		 Validation Loss: 0.7765531595796347
+Epoch 104 		 Training Loss: 0.01260761464072857 		 Validation Loss: 0.7772363815456629
+Epoch 105 		 Training Loss: 0.014231380428100238 		 Validation Loss: 0.7780274637043476
+Epoch 106 		 Training Loss: 0.013446612174448092 		 Validation Loss: 0.7761043105274439
+Epoch 107 		 Training Loss: 0.01185295175309875 		 Validation Loss: 0.7783640660345554
+Epoch 108 		 Training Loss: 0.013005469088966493 		 Validation Loss: 0.7780343685299158
+Epoch 109 		 Training Loss: 0.012765670842782129 		 Validation Loss: 0.7768165729939938
+Epoch 110 		 Training Loss: 0.013696499350771774 		 Validation Loss: 0.7766981814056635
+Epoch 111 		 Training Loss: 0.014130470917734783 		 Validation Loss: 0.7771618459373713
+Epoch 112 		 Training Loss: 0.012826691927330103 		 Validation Loss: 0.7772025540471077
+Epoch 113 		 Training Loss: 0.015430078623467125 		 Validation Loss: 0.7760852631181479
+Epoch 114 		 Training Loss: 0.013588880610768683 		 Validation Loss: 0.7782073579728603
+Epoch 115 		 Training Loss: 0.01402385046822019 		 Validation Loss: 0.778039338067174
+Epoch 116 		 Training Loss: 0.013872967931092717 		 Validation Loss: 0.7766049858182669
+Epoch 117 		 Training Loss: 0.013700998813874321 		 Validation Loss: 0.7761805281043053
+Epoch 118 		 Training Loss: 0.014717093927174574 		 Validation Loss: 0.7763389870524406
+Epoch 119 		 Training Loss: 0.01464501951704733 		 Validation Loss: 0.7767049763351679
+Epoch 120 		 Training Loss: 0.01333337576215854 		 Validation Loss: 0.7761408407241106
+Epoch 121 		 Training Loss: 0.013797444345982512 		 Validation Loss: 0.7773077022284269
+Epoch 122 		 Training Loss: 0.012837500147725223 		 Validation Loss: 0.776648772880435
+Epoch 123 		 Training Loss: 0.014093340356339468 		 Validation Loss: 0.7776429187506437
+Epoch 124 		 Training Loss: 0.013640541408676654 		 Validation Loss: 0.776831841096282
+Epoch 125 		 Training Loss: 0.012986853056645487 		 Validation Loss: 0.7765909023582935
+Epoch 126 		 Training Loss: 0.012979857572645415 		 Validation Loss: 0.7783759385347366
+Epoch 127 		 Training Loss: 0.012231687775056344 		 Validation Loss: 0.7780548632144928
+Epoch 128 		 Training Loss: 0.013391896907705814 		 Validation Loss: 0.7761804610490799
+Epoch 129 		 Training Loss: 0.01354279998849961 		 Validation Loss: 0.7774731423705816
+Epoch 130 		 Training Loss: 0.01349411975388648 		 Validation Loss: 0.7761840187013149
+Epoch 131 		 Training Loss: 0.013833987115503987 		 Validation Loss: 0.776284959167242
+Epoch 132 		 Training Loss: 0.013629435106849996 		 Validation Loss: 0.7760920207947493
+Epoch 133 		 Training Loss: 0.01447106590421754 		 Validation Loss: 0.7763353250920773
+Epoch 134 		 Training Loss: 0.013508086736692348 		 Validation Loss: 0.7773069646209478
+Epoch 135 		 Training Loss: 0.013838029713951983 		 Validation Loss: 0.7767140995711088
+Epoch 136 		 Training Loss: 0.015686556940636365 		 Validation Loss: 0.7771902177482843
+Epoch 137 		 Training Loss: 0.013264939883811167 		 Validation Loss: 0.7767140939831734
+Epoch 138 		 Training Loss: 0.01471606714403606 		 Validation Loss: 0.775076562538743
+Epoch 139 		 Training Loss: 0.012752169979648897 		 Validation Loss: 0.7785934135317802
+Epoch 140 		 Training Loss: 0.015719964609161252 		 Validation Loss: 0.7766009159386158
+Epoch 141 		 Training Loss: 0.014437513280427083 		 Validation Loss: 0.7768451888114214
+Epoch 142 		 Training Loss: 0.01365811116193072 		 Validation Loss: 0.7760484833270311
+Epoch 143 		 Training Loss: 0.012610522928298451 		 Validation Loss: 0.7766766529530287
+Epoch 144 		 Training Loss: 0.013813551096973242 		 Validation Loss: 0.7776397354900837
+Epoch 145 		 Training Loss: 0.01381731909350492 		 Validation Loss: 0.7771804798394442
+Epoch 146 		 Training Loss: 0.015634160215995507 		 Validation Loss: 0.7760986499488354
+Epoch 147 		 Training Loss: 0.015228339441819116 		 Validation Loss: 0.7768107950687408
+Epoch 148 		 Training Loss: 0.014537299917719793 		 Validation Loss: 0.7777197826653719
+Epoch 149 		 Training Loss: 0.013566155703301774 		 Validation Loss: 0.7771391347050667
+Epoch 150 		 Training Loss: 0.011799006497312803 		 Validation Loss: 0.7769038509577513
+Accuracy of the model: 91.29%
+Accuracy of the model: 80.93%

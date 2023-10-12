@@ -162,7 +162,7 @@ model_ft.fc = nn.Sequential(
 #model_ft.load_state_dict(torch.load('saved_model.pth'))
 criterion = nn.CrossEntropyLoss()
 
-optimizer_ft = optim.Adam(model_ft.parameters(), lr=0.0001, weight_decay=0.005)
+optimizer_ft = optim.Adam(model_ft.parameters(), lr=0.0001, weight_decay=0.01)
 exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
 #model_ft = nn.DataParallel(model_ft)
 model_ft.load_state_dict(torch.load('saved_model_final.pth'))
@@ -260,7 +260,7 @@ def train_model(model, optimizer, scheduler, train_loader, valid_loader, loss_mo
             min_valid_loss = valid_loss
             # Saving State Dict
             torch.save(model.module.state_dict(), 'saved_model_final_v5.pth')
-train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 300)
+train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 75)
 
 import torch.nn.functional as F
 

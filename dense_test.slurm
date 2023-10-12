@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -A sds-phd-2022
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:5
+#SBATCH --gres=gpu:a100:1
 #SBATCH --ntasks=1
 
 #SBATCH -t 0-08:00:00

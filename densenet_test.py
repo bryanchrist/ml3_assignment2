@@ -151,30 +151,30 @@ from PIL import Image
 from tempfile import TemporaryDirectory
 
 #Load trained model:
-# model_ft = torch.hub.load('pytorch/vision:v0.10.0', 'resnext101_32x8d', pretrained=True)
-# num_classes=120
-# num_ftrs = model_ft.fc.in_features
-# #model_ft.fc = nn.Linear(num_ftrs, num_classes)
-# model_ft.classifier = nn.Sequential(
-#     nn.Linear(num_ftrs, 256),  # Additional linear layer with 256 output features
-#     nn.LeakyReLU(negative_slope=0.01, inplace=True),        
-#     nn.Dropout(0.6),               # Dropout layer with 50% probability
-#     nn.Linear(256, num_classes)    # Final prediction fc layer
-# )
-# #model_ft.load_state_dict(torch.load('saved_model.pth'))
-# criterion = nn.CrossEntropyLoss()
-# for param in model_ft.parameters():
-#     param.requires_grad = False
+model_ft = torch.hub.load('pytorch/vision:v0.10.0', 'resnext101_32x8d', pretrained=True)
+num_classes=120
+num_ftrs = model_ft.fc.in_features
+#model_ft.fc = nn.Linear(num_ftrs, num_classes)
+model_ft.fc = nn.Sequential(
+    nn.Linear(num_ftrs, 256),  # Additional linear layer with 256 output features
+    nn.LeakyReLU(negative_slope=0.01, inplace=True),        
+    nn.Dropout(0.6),               # Dropout layer with 50% probability
+    nn.Linear(256, num_classes)    # Final prediction fc layer
+)
+#model_ft.load_state_dict(torch.load('saved_model.pth'))
+criterion = nn.CrossEntropyLoss()
+for param in model_ft.parameters():
+    param.requires_grad = False
     
-# for param in model_ft.fc.parameters():
-#     param.requires_grad = True
-# optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.0001, weight_decay=0.01)
-# exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
-# #model_ft = nn.DataParallel(model_ft)
-# #model_ft.load_state_dict(torch.load('saved_model_final.pth'))
-# #model_ft.load_state_dict(torch.load('saved_model_final_v3.pth'))
-# model_ft = nn.DataParallel(model_ft)
-# model_ft = model_ft.to(device)    
+for param in model_ft.fc.parameters():
+    param.requires_grad = True
+optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.0001, weight_decay=0.01)
+exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
+#model_ft = nn.DataParallel(model_ft)
+#model_ft.load_state_dict(torch.load('saved_model_final.pth'))
+#model_ft.load_state_dict(torch.load('saved_model_final_v3.pth'))
+model_ft = nn.DataParallel(model_ft)
+model_ft = model_ft.to(device)    
 
 batch_size = 128
 # Pytorch train and test sets
@@ -272,7 +272,7 @@ model_ft = torch.hub.load('pytorch/vision:v0.10.0', 'resnext101_32x8d')
 num_classes=120
 num_ftrs = model_ft.fc.in_features
 #model_ft.fc = nn.Linear(num_ftrs, num_classes)
-model_ft.classifier = nn.Sequential(
+model_ft.fc = nn.Sequential(
     nn.Linear(num_ftrs, 256),  # Additional linear layer with 256 output features
     nn.LeakyReLU(negative_slope=0.01, inplace=True),        
     nn.Dropout(0.6),               # Dropout layer with 50% probability
@@ -287,8 +287,8 @@ exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
 #model_ft.load_state_dict(torch.load('saved_model_final.pth'))
 model_ft.load_state_dict(torch.load('resnext.pth'))
 model_ft = nn.DataParallel(model_ft)
-model_ft = model_ft.to(device)   
-train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 150)
+#model_ft = model_ft.to(device)   
+train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 100)
 
 import torch.nn.functional as F
 
@@ -317,7 +317,7 @@ model_ft = torch.hub.load('pytorch/vision:v0.10.0', 'resnext101_32x8d')
 num_classes=120
 num_ftrs = model_ft.fc.in_features
 #model_ft.fc = nn.Linear(num_ftrs, num_classes)
-model_ft.classifier = nn.Sequential(
+model_ft.fc = nn.Sequential(
     nn.Linear(num_ftrs, 256),  # Additional linear layer with 256 output features
     nn.LeakyReLU(negative_slope=0.01, inplace=True),        
     nn.Dropout(0.2),               # Dropout layer with 20% probability
@@ -325,7 +325,7 @@ model_ft.classifier = nn.Sequential(
 )
 model_ft.load_state_dict(torch.load('resnext_final.pth'))
 model_ft = nn.DataParallel(model_ft)
-model_ft = model_ft.to(device)
+#model_ft = model_ft.to(device)
 
 criterion = nn.CrossEntropyLoss()
 
