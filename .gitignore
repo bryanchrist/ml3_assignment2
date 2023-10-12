@@ -162,3 +162,5 @@ cython_debug/
 #big model files
 resnext.pth
 resnext_final.pth
+resnext_v2.pth
+resnext_final_v2.pth
