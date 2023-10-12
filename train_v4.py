@@ -39,8 +39,8 @@ labels.breed = le.fit_transform(labels.breed)
 X = labels.id
 y = labels.breed
 
-X_train, X_valid, y_train, y_valid = train_test_split(X, y,test_size=0.4, random_state=SEED, stratify=y)
-X_valid, X_test, y_valid, y_test = train_test_split(X_valid, y_valid, test_size=0.5, random_state=SEED, stratify=y_valid)
+X_train, X_valid, y_train, y_valid = train_test_split(X, y,test_size=0.2, random_state=SEED, stratify=y)
+#X_valid, X_test, y_valid, y_test = train_test_split(X_valid, y_valid, test_size=0.5, random_state=SEED, stratify=y_valid)
 
 from torchvision.transforms import Resize, ToTensor, Normalize
 
@@ -133,7 +133,7 @@ class Dataset_Interpreter_valid_test(Dataset):
 train_data = Dataset_Interpreter(data_path=data_dir+'/train/', file_names=X_train, labels=y_train)
 crop_data = Dataset_Interpreter_crop(data_path=data_dir+'/train/', file_names=X_train, labels=y_train)
 valid_data = Dataset_Interpreter_valid_test(data_path=data_dir+'/train/', file_names=X_valid, labels=y_valid)
-test_data = Dataset_Interpreter_valid_test(data_path=data_dir+'/train/', file_names=X_test, labels=y_test)
+#test_data = Dataset_Interpreter_valid_test(data_path=data_dir+'/train/', file_names=X_test, labels=y_test)
 
 import torch
 import torch.nn as nn
@@ -175,7 +175,7 @@ batch_size = 128
 # data loader
 train_loader = DataLoader(train_data, batch_size = batch_size, shuffle = False)
 valid_loader= DataLoader(valid_data, batch_size = batch_size, shuffle = False)
-test_loader = DataLoader(test_data, batch_size = batch_size, shuffle = False)
+#test_loader = DataLoader(test_data, batch_size = batch_size, shuffle = False)
 crop_loader = DataLoader(crop_data, batch_size = batch_size, shuffle = False)
 
 train_losses = []
@@ -259,7 +259,7 @@ def train_model(model, optimizer, scheduler, train_loader, valid_loader, loss_mo
             print(f'Validation Loss Decreased({min_valid_loss:.6f}--->{valid_loss:.6f}) \t Saving The Model')
             min_valid_loss = valid_loss
             # Saving State Dict
-            torch.save(model.module.state_dict(), 'saved_model_final_v4.pth')
+            torch.save(model.module.state_dict(), 'saved_model_final_v5.pth')
 train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 300)
 
 import torch.nn.functional as F
@@ -295,7 +295,7 @@ model_ft.fc = nn.Sequential(
     nn.Dropout(0.2),               # Dropout layer with 20% probability
     nn.Linear(256, num_classes)    # Final prediction fc layer
 )
-model_ft.load_state_dict(torch.load('saved_model_final_v4.pth'))
+model_ft.load_state_dict(torch.load('saved_model_final_v5.pth'))
 model_ft = nn.DataParallel(model_ft)
 model_ft = model_ft.to(device)
 
@@ -306,7 +306,7 @@ optimizer_ft = optim.Adam(model_ft.parameters(), lr=0.0001, weight_decay=0.0001)
 # Assuming you have already defined 'model' and 'train_loader'
 eval_model(model_ft, train_loader)
 eval_model(model_ft, valid_loader)
-eval_model(model_ft, test_loader)
+#eval_model(model_ft, test_loader)
 
 import pandas as pd
 

@@ -1,0 +1,14 @@
+To execute the default application inside the container, run:
+singularity run --nv $CONTAINERDIR/pytorch-2.0.1.sif
+
+This container is based on NGC 23.08
+https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-08.html#rel-23-08
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)
+ERROR: No matching distribution found for PIL
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+Traceback (most recent call last):
+  File "/sfs/qumulo/qhome/brc4cb/ml3_assignment2/densenet_test.py", line 154, in <module>
+    model_ft = torch.hub.load('pytorch/vision:v0.10.0', 'resnext101_32x8d', weights=ResNeXt101_32X8D_Weights.DEFAULT)
+NameError: name 'ResNeXt101_32X8D_Weights' is not defined

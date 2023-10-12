@@ -1,0 +1,14 @@
+To execute the default application inside the container, run:
+singularity run --nv $CONTAINERDIR/pytorch-2.0.1.sif
+
+This container is based on NGC 23.08
+https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-08.html#rel-23-08
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)
+ERROR: No matching distribution found for PIL
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+Traceback (most recent call last):
+  File "/sfs/qumulo/qhome/brc4cb/ml3_assignment2/train_v4.py", line 179, in <module>
+    crop_loader = DataLoader(crop_data, batch_size = batch_size, shuffle = False)
+NameError: name 'crop_data' is not defined
