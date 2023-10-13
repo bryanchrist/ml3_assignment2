@@ -158,7 +158,7 @@ num_ftrs = model_ft.fc.in_features
 model_ft.fc = nn.Sequential(
     nn.Linear(num_ftrs, 1300),  # Additional linear layer with 700 output features
     nn.LeakyReLU(negative_slope=0.01, inplace=True),        
-    nn.Dropout(0.6),               # Dropout layer with 60% probability
+    nn.Dropout(0.4),               # Dropout layer with 60% probability
     nn.Linear(1300, num_classes)    # Final prediction fc layer
 )
 #model_ft.load_state_dict(torch.load('saved_model.pth'))
@@ -168,11 +168,11 @@ for param in model_ft.parameters():
     
 for param in model_ft.fc.parameters():
     param.requires_grad = True
-optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.0001, weight_decay=0.005)
+optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.0001, weight_decay=0.0001)
 exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
 #model_ft = nn.DataParallel(model_ft)
 #model_ft.load_state_dict(torch.load('saved_model_final.pth'))
-#model_ft.load_state_dict(torch.load('resnext_v4.pth'))
+model_ft.load_state_dict(torch.load('resnext_v5.pth'))
 model_ft = nn.DataParallel(model_ft)
 model_ft = model_ft.to(device)    
 
@@ -266,7 +266,7 @@ def train_model(model, optimizer, scheduler, train_loader, valid_loader, loss_mo
             min_valid_loss = valid_loss
             # Saving State Dict
             torch.save(model.module.state_dict(), 'resnext_v5.pth')
-train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 100)
+train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 75)
 
 import torch.nn.functional as F
 
@@ -397,4 +397,4 @@ def generate_submission(predictions, sample_submission_path, output_path):
         sample_submission.loc[sample_submission['id'] == prediction['image_id'], sample_submission.columns[1:]] = preds
     # Save the modified sample submission as the final submission
     sample_submission.to_csv(output_path, index=False)
-generate_submission(predictions, data_dir + '/sample_submission.csv', 'my_submission_resnext_v5.csv')
+generate_submission(predictions, data_dir + '/sample_submission.csv', 'my_submission_resnext_v7.csv')
