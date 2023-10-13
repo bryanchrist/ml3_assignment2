@@ -6,8 +6,8 @@
 
 #SBATCH -t 0-12:00:00
 #SBATCH -J ml3_assignment2_resnext_train
-#SBATCH -o resnext_training-%A.out
-#SBATCH -e resnext_training-%A.err
+#SBATCH -o resnext1000_training-%A.out
+#SBATCH -e resnext1000_training-%A.err
 
 module purge
 

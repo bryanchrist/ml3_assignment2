@@ -168,7 +168,7 @@ for param in model_ft.parameters():
     
 for param in model_ft.fc.parameters():
     param.requires_grad = True
-optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.0001, weight_decay=0.01)
+optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.0001, weight_decay=0.005)
 exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
 #model_ft = nn.DataParallel(model_ft)
 #model_ft.load_state_dict(torch.load('saved_model_final.pth'))
@@ -265,8 +265,88 @@ def train_model(model, optimizer, scheduler, train_loader, valid_loader, loss_mo
             print(f'Validation Loss Decreased({min_valid_loss:.6f}--->{valid_loss:.6f}) \t Saving The Model')
             min_valid_loss = valid_loss
             # Saving State Dict
-            torch.save(model.module.state_dict(), 'resnext_final.pth')
-#train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 100)
+            torch.save(model.module.state_dict(), 'resnext_v3.pth')
+train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 70)
+
+def train_model(model, optimizer, scheduler, train_loader, valid_loader, loss_module, num_epochs=100):
+    min_valid_loss = 0.0
+    model.eval()     
+    for data_inputs, data_labels in valid_loader:
+        data_inputs = data_inputs.to(device)
+        data_labels = np.array(data_labels)
+        data_labels = torch.from_numpy(data_labels)
+        data_labels = data_labels.to(device)
+
+        ## Step 2: Run the model on the input data
+        preds = model(data_inputs)
+        preds = preds.squeeze(dim=1) # Output is [Batch size, 1], but we want [Batch size]
+
+        ## Step 3: Calculate the loss
+        loss = loss_module(preds, data_labels)
+        min_valid_loss += loss.item()
+        
+    # Training loop
+    for epoch in tqdm(range(num_epochs)):
+        train_loss = 0.0
+        # Set model to train mode
+        model.train()
+        for data_inputs, data_labels in train_loader:
+            ## Step 1: Move input data to device (only strictly necessary if we use GPU)
+            data_inputs = data_inputs.to(device)
+            data_labels = np.array(data_labels)
+            data_labels = torch.from_numpy(data_labels)
+            data_labels = data_labels.to(device)
+
+            ## Step 2: Run the model on the input data
+#             inputs = data_inputs.view(-1, 3, 224, 224)  
+#             preds = model(inputs)
+#             preds = preds.view(10, -1, 120)
+#             preds = preds.max(dim=0)
+            preds = model(data_inputs)
+            preds = preds.squeeze(dim=1) # Output is [Batch size, 1], but we want [Batch size]
+
+            ## Step 3: Calculate the loss
+            #loss = loss_module(preds[0], data_labels)
+            loss = loss_module(preds, data_labels)
+            ## Step 4: Perform backpropagation
+            # Before calculating the gradients, we need to ensure that they are all zero.
+            # The gradients would not be overwritten, but actually added to the existing ones.
+            optimizer.zero_grad()
+            # Perform backpropagation
+            loss.backward()
+
+            ## Step 5: Update the parameters
+            optimizer.step()
+            
+            ## Step 6: Add to loss
+            train_loss += loss.item()
+        scheduler.step()
+        
+        #Validation Loop
+        valid_loss = 0.0
+        model.eval()     
+        for data_inputs, data_labels in valid_loader:
+            data_inputs = data_inputs.to(device)
+            data_labels = np.array(data_labels)
+            data_labels = torch.from_numpy(data_labels)
+            data_labels = data_labels.to(device)
+
+            ## Step 2: Run the model on the input data
+            preds = model(data_inputs)
+            preds = preds.squeeze(dim=1) # Output is [Batch size, 1], but we want [Batch size]
+
+            ## Step 3: Calculate the loss
+            loss = loss_module(preds, data_labels)
+            valid_loss += loss.item()
+
+        print(f'Epoch {epoch+1} \t\t Training Loss: {train_loss / len(train_loader)} \t\t Validation Loss: {valid_loss / len(valid_loader)}')
+        train_losses.append(train_loss / len(train_loader))
+        valid_losses.append(valid_loss / len(valid_loader))
+        if min_valid_loss > valid_loss:
+            print(f'Validation Loss Decreased({min_valid_loss:.6f}--->{valid_loss:.6f}) \t Saving The Model')
+            min_valid_loss = valid_loss
+            # Saving State Dict
+            torch.save(model.module.state_dict(), 'resnext_final_v3.pth')
 
 model_ft = torch.hub.load('pytorch/vision:v0.10.0', 'resnext101_32x8d')
 num_classes=120
@@ -281,14 +361,14 @@ model_ft.fc = nn.Sequential(
 #model_ft.load_state_dict(torch.load('saved_model.pth'))
 criterion = nn.CrossEntropyLoss()
 
-optimizer_ft = optim.Adam(model_ft.parameters(), lr=0.0001, weight_decay=0.01)
+optimizer_ft = optim.Adam(model_ft.parameters(), lr=0.0001, weight_decay=0.005)
 exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
 #model_ft = nn.DataParallel(model_ft)
 #model_ft.load_state_dict(torch.load('saved_model_final.pth'))
-model_ft.load_state_dict(torch.load('resnext.pth'))
+model_ft.load_state_dict(torch.load('resnext_v3.pth'))
 model_ft = nn.DataParallel(model_ft)
 #model_ft = model_ft.to(device)   
-#train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 100)
+train_model(model_ft, optimizer_ft, exp_lr_scheduler, train_loader, valid_loader, criterion, num_epochs = 70)
 
 import torch.nn.functional as F
 
@@ -323,7 +403,7 @@ model_ft.fc = nn.Sequential(
     nn.Dropout(0.2),               # Dropout layer with 20% probability
     nn.Linear(256, num_classes)    # Final prediction fc layer
 )
-model_ft.load_state_dict(torch.load('resnext_final.pth'))
+model_ft.load_state_dict(torch.load('resnext_final_v3.pth'))
 model_ft = nn.DataParallel(model_ft)
 #model_ft = model_ft.to(device)
 
@@ -419,4 +499,4 @@ def generate_submission(predictions, sample_submission_path, output_path):
         sample_submission.loc[sample_submission['id'] == prediction['image_id'], sample_submission.columns[1:]] = preds
     # Save the modified sample submission as the final submission
     sample_submission.to_csv(output_path, index=False)
-generate_submission(predictions, data_dir + '/sample_submission.csv', 'my_submission_resnext.csv')
+generate_submission(predictions, data_dir + '/sample_submission.csv', 'my_submission_resnext_v3.csv')

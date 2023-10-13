@@ -1,0 +1,6 @@
+To execute the default application inside the container, run:
+singularity run --nv $CONTAINERDIR/pytorch-2.0.1.sif
+
+This container is based on NGC 23.08
+https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-08.html#rel-23-08
+slurmstepd: error: *** JOB 54039424 ON udc-an34-1 CANCELLED AT 2023-10-12T14:33:05 ***
