@@ -1,0 +1,13 @@
+To execute the default application inside the container, run:
+singularity run --nv $CONTAINERDIR/pytorch-2.0.1.sif
+
+This container is based on NGC 23.08
+https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-08.html#rel-23-08
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+ERROR: Could not find a version that satisfies the requirement PIL (from versions: none)
+ERROR: No matching distribution found for PIL
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+WARNING: Ignoring invalid distribution -riton-nightly (/sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages)
+Using cache found in /home/brc4cb/.cache/torch/hub/pytorch_vision_v0.10.0
+Using cache found in /home/brc4cb/.cache/torch/hub/pytorch_vision_v0.10.0
+  0%|          | 0/30 [00:00<?, ?it/s]  3%|▎         | 1/30 [02:30<1:12:48, 150.64s/it]  7%|▋         | 2/30 [05:00<1:10:03, 150.12s/it] 10%|█         | 3/30 [07:29<1:07:20, 149.63s/it] 13%|█▎        | 4/30 [09:58<1:04:41, 149.28s/it] 17%|█▋        | 5/30 [12:26<1:02:07, 149.10s/it] 20%|██        | 6/30 [14:56<59:41, 149.24s/it]   23%|██▎       | 7/30 [17:25<57:11, 149.21s/it] 27%|██▋       | 8/30 [19:54<54:39, 149.05s/it] 30%|███       | 9/30 [22:23<52:12, 149.16s/it] 33%|███▎      | 10/30 [24:52<49:42, 149.11s/it] 37%|███▋      | 11/30 [27:21<47:09, 148.93s/it] 40%|████      | 12/30 [29:49<44:38, 148.83s/it] 43%|████▎     | 13/30 [32:18<42:07, 148.68s/it] 47%|████▋     | 14/30 [34:46<39:37, 148.59s/it] 50%|█████     | 15/30 [37:15<37:10, 148.73s/it] 53%|█████▎    | 16/30 [39:43<34:39, 148.52s/it] 57%|█████▋    | 17/30 [42:13<32:14, 148.79s/it] 60%|██████    | 18/30 [44:41<29:45, 148.82s/it] 63%|██████▎   | 19/30 [47:11<27:18, 148.91s/it] 67%|██████▋   | 20/30 [49:40<24:49, 148.91s/it] 70%|███████   | 21/30 [52:09<22:20, 148.96s/it] 73%|███████▎  | 22/30 [54:37<19:49, 148.64s/it] 77%|███████▋  | 23/30 [57:06<17:21, 148.75s/it] 80%|████████  | 24/30 [59:34<14:51, 148.59s/it] 83%|████████▎ | 25/30 [1:02:02<12:22, 148.56s/it] 87%|████████▋ | 26/30 [1:04:31<09:54, 148.67s/it] 90%|█████████ | 27/30 [1:07:01<07:27, 149.02s/it] 93%|█████████▎| 28/30 [1:09:31<04:58, 149.37s/it] 97%|█████████▋| 29/30 [1:12:01<02:29, 149.39s/it]100%|██████████| 30/30 [1:14:30<00:00, 149.35s/it]100%|██████████| 30/30 [1:14:30<00:00, 149.01s/it]

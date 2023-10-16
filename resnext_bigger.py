@@ -158,7 +158,7 @@ num_ftrs = model_ft.fc.in_features
 model_ft.fc = nn.Sequential(
     nn.Linear(num_ftrs, 1000),  # Additional linear layer with 700 output features
     nn.LeakyReLU(negative_slope=0.01, inplace=True),        
-    nn.Dropout(0.4),               # Dropout layer with 60% probability
+    nn.Dropout(0.1),               # Dropout layer with 60% probability
     nn.Linear(1000, num_classes)    # Final prediction fc layer
 )
 #model_ft.load_state_dict(torch.load('saved_model.pth'))
@@ -168,7 +168,7 @@ for param in model_ft.parameters():
     
 for param in model_ft.fc.parameters():
     param.requires_grad = True
-optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.0001, weight_decay=0.0001)
+optimizer_ft = optim.Adam(model_ft.fc.parameters(), lr=0.00005, weight_decay=0.000001)
 exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=10, gamma=0.1)
 #model_ft = nn.DataParallel(model_ft)
 #model_ft.load_state_dict(torch.load('saved_model_final.pth'))

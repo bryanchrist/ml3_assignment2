@@ -42,3 +42,78 @@ Solving environment: ...working... done
 
 # All requested packages already installed.
 
+Epoch 1 		 Training Loss: 0.5758564244024456 		 Validation Loss: 0.31794617138803005
+Validation Loss Decreased(6.050464--->5.087139) 	 Saving The Model
+Epoch 2 		 Training Loss: 0.5087884268723428 		 Validation Loss: 0.2986279549077153
+Validation Loss Decreased(5.087139--->4.778047) 	 Saving The Model
+Epoch 3 		 Training Loss: 0.47242619562894106 		 Validation Loss: 0.28001950215548277
+Validation Loss Decreased(4.778047--->4.480312) 	 Saving The Model
+Epoch 4 		 Training Loss: 0.44693927513435483 		 Validation Loss: 0.26610380690544844
+Validation Loss Decreased(4.480312--->4.257661) 	 Saving The Model
+Epoch 5 		 Training Loss: 0.4247657787054777 		 Validation Loss: 0.2597075579687953
+Validation Loss Decreased(4.257661--->4.155321) 	 Saving The Model
+Epoch 6 		 Training Loss: 0.41548736905679107 		 Validation Loss: 0.2549140602350235
+Validation Loss Decreased(4.155321--->4.078625) 	 Saving The Model
+Epoch 7 		 Training Loss: 0.38581817713566124 		 Validation Loss: 0.2483306471258402
+Validation Loss Decreased(4.078625--->3.973290) 	 Saving The Model
+Epoch 8 		 Training Loss: 0.37617818964645267 		 Validation Loss: 0.24167373590171337
+Validation Loss Decreased(3.973290--->3.866780) 	 Saving The Model
+Epoch 9 		 Training Loss: 0.3725160846952349 		 Validation Loss: 0.23800863232463598
+Validation Loss Decreased(3.866780--->3.808138) 	 Saving The Model
+Epoch 10 		 Training Loss: 0.354448270983994 		 Validation Loss: 0.23478255048394203
+Validation Loss Decreased(3.808138--->3.756521) 	 Saving The Model
+Epoch 11 		 Training Loss: 0.3785942697431892 		 Validation Loss: 0.22464112285524607
+Validation Loss Decreased(3.756521--->3.594258) 	 Saving The Model
+Epoch 12 		 Training Loss: 0.37915949849411845 		 Validation Loss: 0.22238901536911726
+Validation Loss Decreased(3.594258--->3.558224) 	 Saving The Model
+Epoch 13 		 Training Loss: 0.35919698257930577 		 Validation Loss: 0.22293092869222164
+Epoch 14 		 Training Loss: 0.35559721337631345 		 Validation Loss: 0.22121195029467344
+Validation Loss Decreased(3.558224--->3.539391) 	 Saving The Model
+Epoch 15 		 Training Loss: 0.3465637480840087 		 Validation Loss: 0.22211091127246618
+Epoch 16 		 Training Loss: 0.36040085507556796 		 Validation Loss: 0.22020496055483818
+Validation Loss Decreased(3.539391--->3.523279) 	 Saving The Model
+Epoch 17 		 Training Loss: 0.35764746461063623 		 Validation Loss: 0.22137264348566532
+Epoch 18 		 Training Loss: 0.3667951507959515 		 Validation Loss: 0.2200809782370925
+Validation Loss Decreased(3.523279--->3.521296) 	 Saving The Model
+Epoch 19 		 Training Loss: 0.3642850457690656 		 Validation Loss: 0.21959561482071877
+Validation Loss Decreased(3.521296--->3.513530) 	 Saving The Model
+Epoch 20 		 Training Loss: 0.34971102490089834 		 Validation Loss: 0.21989622619003057
+Epoch 21 		 Training Loss: 0.3399152655620128 		 Validation Loss: 0.21970352064818144
+Epoch 22 		 Training Loss: 0.34047760255634785 		 Validation Loss: 0.21984650939702988
+Epoch 23 		 Training Loss: 0.3553595277480781 		 Validation Loss: 0.21915857773274183
+Validation Loss Decreased(3.513530--->3.506537) 	 Saving The Model
+Epoch 24 		 Training Loss: 0.35750661161728203 		 Validation Loss: 0.21861002687364817
+Validation Loss Decreased(3.506537--->3.497760) 	 Saving The Model
+Epoch 25 		 Training Loss: 0.3596004485152662 		 Validation Loss: 0.2186244586482644
+Epoch 26 		 Training Loss: 0.34947965503670275 		 Validation Loss: 0.21910100616514683
+Epoch 27 		 Training Loss: 0.3561536979395896 		 Validation Loss: 0.21894729975610971
+Epoch 28 		 Training Loss: 0.34679067390970886 		 Validation Loss: 0.21868640184402466
+Epoch 29 		 Training Loss: 0.3388165468350053 		 Validation Loss: 0.2184435147792101
+Validation Loss Decreased(3.497760--->3.495096) 	 Saving The Model
+Epoch 30 		 Training Loss: 0.3627119062002748 		 Validation Loss: 0.21800858154892921
+Validation Loss Decreased(3.495096--->3.488137) 	 Saving The Model
+Epoch 31 		 Training Loss: 0.346024434780702 		 Validation Loss: 0.21879487950354815
+Epoch 32 		 Training Loss: 0.3429288202896714 		 Validation Loss: 0.21842148154973984
+Epoch 33 		 Training Loss: 0.35396401467733085 		 Validation Loss: 0.21812486555427313
+Epoch 34 		 Training Loss: 0.3545575432945043 		 Validation Loss: 0.2179647358134389
+Validation Loss Decreased(3.488137--->3.487436) 	 Saving The Model
+Epoch 35 		 Training Loss: 0.34504710556939244 		 Validation Loss: 0.21869559306651354
+Epoch 36 		 Training Loss: 0.34576492570340633 		 Validation Loss: 0.21782905142754316
+Validation Loss Decreased(3.487436--->3.485265) 	 Saving The Model
+Epoch 37 		 Training Loss: 0.3503681877627969 		 Validation Loss: 0.21848958637565374
+Epoch 38 		 Training Loss: 0.3537855783943087 		 Validation Loss: 0.2185412747785449
+Epoch 39 		 Training Loss: 0.36044784262776375 		 Validation Loss: 0.21822767332196236
+Epoch 40 		 Training Loss: 0.3477150925900787 		 Validation Loss: 0.21833152137696743
+Epoch 41 		 Training Loss: 0.3505745700094849 		 Validation Loss: 0.21839924529194832
+Epoch 42 		 Training Loss: 0.3388478623237461 		 Validation Loss: 0.2184735955670476
+Epoch 43 		 Training Loss: 0.34673230117186904 		 Validation Loss: 0.21826653741300106
+Epoch 44 		 Training Loss: 0.35496115824207664 		 Validation Loss: 0.2185664214193821
+Epoch 45 		 Training Loss: 0.3629826111719012 		 Validation Loss: 0.21804087609052658
+Epoch 46 		 Training Loss: 0.3430630292277783 		 Validation Loss: 0.2182371336966753
+Epoch 47 		 Training Loss: 0.3545779383275658 		 Validation Loss: 0.21779643464833498
+Validation Loss Decreased(3.485265--->3.484743) 	 Saving The Model
+Epoch 48 		 Training Loss: 0.35576710221357644 		 Validation Loss: 0.2182812998071313
+Epoch 49 		 Training Loss: 0.34923842642456293 		 Validation Loss: 0.2187174940481782
+Epoch 50 		 Training Loss: 0.352581400424242 		 Validation Loss: 0.21838437765836716
+Accuracy of the model: 92.00%
+Accuracy of the model: 93.40%

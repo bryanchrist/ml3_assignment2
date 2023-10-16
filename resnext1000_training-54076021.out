@@ -1,0 +1,96 @@
+Requirement already satisfied: pandas in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from -r requirements.txt (line 1)) (2.0.3)
+Collecting pandas (from -r requirements.txt (line 1))
+  Using cached pandas-2.1.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
+Collecting matplotlib (from -r requirements.txt (line 2))
+  Using cached matplotlib-3.8.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.6 MB)
+Requirement already satisfied: numpy in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from -r requirements.txt (line 3)) (1.25.2)
+Collecting numpy (from -r requirements.txt (line 3))
+  Using cached numpy-1.26.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+Requirement already satisfied: torchvision in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from -r requirements.txt (line 4)) (0.16.0)
+Requirement already satisfied: torchvision in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (0.16.0)
+Requirement already satisfied: numpy in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torchvision) (1.25.2)
+Requirement already satisfied: requests in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torchvision) (2.31.0)
+Requirement already satisfied: torch==2.1.0 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torchvision) (2.1.0)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torchvision) (10.0.1)
+Requirement already satisfied: filelock in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (3.9.0)
+Requirement already satisfied: typing-extensions in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (4.4.0)
+Requirement already satisfied: sympy in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (1.11.1)
+Requirement already satisfied: networkx in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (3.0rc1)
+Requirement already satisfied: jinja2 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (3.1.2)
+Requirement already satisfied: fsspec in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (2023.4.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.105)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.105)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.105)
+Requirement already satisfied: nvidia-cudnn-cu12==8.9.2.26 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (8.9.2.26)
+Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.3.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (11.0.2.54)
+Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (10.3.2.106)
+Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (11.4.5.107)
+Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.0.106)
+Requirement already satisfied: nvidia-nccl-cu12==2.18.1 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (2.18.1)
+Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (12.1.105)
+Requirement already satisfied: triton==2.1.0 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from torch==2.1.0->torchvision) (2.1.0)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch==2.1.0->torchvision) (12.2.140)
+Requirement already satisfied: charset-normalizer<4,>=2 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from requests->torchvision) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from requests->torchvision) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from requests->torchvision) (2.0.3)
+Requirement already satisfied: certifi>=2017.4.17 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from requests->torchvision) (2023.5.7)
+Requirement already satisfied: MarkupSafe>=2.0 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from jinja2->torch==2.1.0->torchvision) (2.1.2)
+Requirement already satisfied: mpmath>=0.19 in /sfs/qumulo/qhome/brc4cb/.conda/envs/falcon_40B/lib/python3.9/site-packages (from sympy->torch==2.1.0->torchvision) (1.2.1)
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+# All requested packages already installed.
+
+Epoch 1 		 Training Loss: 0.12683818629011512 		 Validation Loss: 0.19394363835453987
+Epoch 2 		 Training Loss: 0.13163770106621087 		 Validation Loss: 0.19502449221909046
+Epoch 3 		 Training Loss: 0.12325342884287238 		 Validation Loss: 0.1975025897845626
+Epoch 4 		 Training Loss: 0.12042727728839964 		 Validation Loss: 0.1967277955263853
+Epoch 5 		 Training Loss: 0.12379588867770508 		 Validation Loss: 0.1977183623239398
+Epoch 6 		 Training Loss: 0.11238111421698704 		 Validation Loss: 0.1970464652404189
+Epoch 7 		 Training Loss: 0.11616670381044969 		 Validation Loss: 0.19860422238707542
+Epoch 8 		 Training Loss: 0.10916722170077264 		 Validation Loss: 0.1948022684082389
+Epoch 9 		 Training Loss: 0.11535043857293203 		 Validation Loss: 0.19546568486839533
+Epoch 10 		 Training Loss: 0.11262656142935157 		 Validation Loss: 0.19720731396228075
+Epoch 11 		 Training Loss: 0.14164505299413577 		 Validation Loss: 0.1947655687108636
+Epoch 12 		 Training Loss: 0.14144854142796248 		 Validation Loss: 0.19385333359241486
+Epoch 13 		 Training Loss: 0.1305766143486835 		 Validation Loss: 0.19285565707832575
+Epoch 14 		 Training Loss: 0.13814894150709733 		 Validation Loss: 0.1922641061246395
+Epoch 15 		 Training Loss: 0.1314850194612518 		 Validation Loss: 0.19246592838317156
+Epoch 16 		 Training Loss: 0.13486321945674717 		 Validation Loss: 0.19208242278546095
+Epoch 17 		 Training Loss: 0.1399857383221388 		 Validation Loss: 0.19133258145302534
+Epoch 18 		 Training Loss: 0.1330181821831502 		 Validation Loss: 0.1909381104633212
+Epoch 19 		 Training Loss: 0.14025118038989604 		 Validation Loss: 0.19155836291611195
+Epoch 20 		 Training Loss: 0.13334295764798298 		 Validation Loss: 0.19153615552932024
+Epoch 21 		 Training Loss: 0.13417583156842738 		 Validation Loss: 0.19060225132852793
+Epoch 22 		 Training Loss: 0.13412846357095987 		 Validation Loss: 0.19131139107048512
+Epoch 23 		 Training Loss: 0.1317121523898095 		 Validation Loss: 0.19140253402292728
+Epoch 24 		 Training Loss: 0.13596053596120328 		 Validation Loss: 0.1919759763404727
+Epoch 25 		 Training Loss: 0.1427836599177681 		 Validation Loss: 0.19132823403924704
+Epoch 26 		 Training Loss: 0.1323545139748603 		 Validation Loss: 0.19127186387777328
+Epoch 27 		 Training Loss: 0.14150074345525354 		 Validation Loss: 0.1906799441203475
+Epoch 28 		 Training Loss: 0.13534033024916425 		 Validation Loss: 0.19135391153395176
+Epoch 29 		 Training Loss: 0.1319974327343516 		 Validation Loss: 0.19180433824658394
+Epoch 30 		 Training Loss: 0.1416014056885615 		 Validation Loss: 0.1908229272812605
+Epoch 31 		 Training Loss: 0.14393109787488356 		 Validation Loss: 0.1916110711172223
+Epoch 32 		 Training Loss: 0.1457764245569706 		 Validation Loss: 0.1910431319847703
+Epoch 33 		 Training Loss: 0.13378587225452065 		 Validation Loss: 0.19104447215795517
+Epoch 34 		 Training Loss: 0.13805504149058834 		 Validation Loss: 0.1910751536488533
+Epoch 35 		 Training Loss: 0.14257411751896143 		 Validation Loss: 0.19132008403539658
+Epoch 36 		 Training Loss: 0.13840493455063552 		 Validation Loss: 0.19136752001941204
+Epoch 37 		 Training Loss: 0.1354179282207042 		 Validation Loss: 0.19153989478945732
+Epoch 38 		 Training Loss: 0.1429227109765634 		 Validation Loss: 0.19104742351919413
+Epoch 39 		 Training Loss: 0.13465824531158432 		 Validation Loss: 0.1914232624694705
+Epoch 40 		 Training Loss: 0.13599492714274675 		 Validation Loss: 0.19076548237353563
+Epoch 41 		 Training Loss: 0.14212552510434762 		 Validation Loss: 0.19114642590284348
+Epoch 42 		 Training Loss: 0.1479272898286581 		 Validation Loss: 0.19073131680488586
+Epoch 43 		 Training Loss: 0.1390364485559985 		 Validation Loss: 0.19110361952334642
+Epoch 44 		 Training Loss: 0.13696724781766534 		 Validation Loss: 0.19091802183538675
+Epoch 45 		 Training Loss: 0.1410802828031592 		 Validation Loss: 0.1914154440164566
+Epoch 46 		 Training Loss: 0.13452304573729634 		 Validation Loss: 0.19163375813513994
+Epoch 47 		 Training Loss: 0.1376678153173998 		 Validation Loss: 0.19123826175928116
+Epoch 48 		 Training Loss: 0.14422471809666604 		 Validation Loss: 0.19098397996276617
+Epoch 49 		 Training Loss: 0.1334028949495405 		 Validation Loss: 0.1914024455472827
+Epoch 50 		 Training Loss: 0.1389050863799639 		 Validation Loss: 0.19170426297932863
+Accuracy of the model: 95.88%
+Accuracy of the model: 94.18%

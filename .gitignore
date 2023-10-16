@@ -172,3 +172,4 @@ resnext_v5.pth
 resnext_final_v5.pth
 resnext_v6.pth
 resnext_final_v6.pth
+*.pth
